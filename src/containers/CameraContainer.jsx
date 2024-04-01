@@ -1,7 +1,7 @@
 import { Camera } from "expo-camera";
 import { getStorage, ref, uploadBytes } from 'firebase/storage';
 import { useEffect, useState } from "react";
-import { Image, Pressable, StyleSheet, Text, View } from "react-native";
+import { Image, Platform, Pressable, StyleSheet, Text, View } from "react-native";
 import app from '../firebase';
 
 export default function CameraContainer(){
@@ -103,6 +103,17 @@ const styles = StyleSheet.create({
         padding: 10,
         margin: 20,
         borderRadius: 10,
+        ...Platform.select({
+            android: {
+              backgroundColor: '#52796f',
+            },
+            ios: {
+              backgroundColor: '#4a4e69',
+            },
+            default: {
+              backgroundColor: '#353535',
+            }
+          }),
     },
     buttonText: {
         color: 'white',

@@ -79,28 +79,25 @@ const styles = StyleSheet.create({
     marginTop: 5,
   },
   btn: {
-    backgroundColor: '#353535',
     borderRadius: 5,
     width: '75%',
     margin: 10,
     padding: 10,
     ...Platform.select({
       android: {
-        backgroundColor: 'green',
+        backgroundColor: '#52796f',
       },
       ios: {
-        backgroundColor: 'green',
+        backgroundColor: '#4a4e69',
       },
+      default: {
+        backgroundColor: '#353535',
+      }
     })
   },
   btnLabel: {
     color: '#fff',
     fontWeight: 'bold',
     textAlign: 'center',
-    ...Platform.select({
-      ios: {
-        color: 'black',
-      },
-    })
   },
 });

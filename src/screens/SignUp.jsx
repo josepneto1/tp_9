@@ -1,7 +1,7 @@
 import { useNavigation } from '@react-navigation/native';
 import { createUserWithEmailAndPassword, getAuth } from 'firebase/auth';
 import { useState } from 'react';
-import { Pressable, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Platform, Pressable, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import firebase from '../firebase';
 import Routes from '../routes';
 
@@ -95,16 +95,36 @@ const styles = StyleSheet.create({
     marginTop: 5,
   },
   btn: {
-    backgroundColor: '#353535',
     borderRadius: 5,
     width: '75%',
     margin: 10,
     padding: 10,
+    ...Platform.select({
+      android: {
+        backgroundColor: '#52796f',
+      },
+      ios: {
+        backgroundColor: '#4a4e69',
+      },
+      default: {
+        backgroundColor: '#353535',
+      }
+    })
   },
   btnEntrar:{
     backgroundColor: '#e5e5e5',
     borderWidth: 1,
-    borderColor: '#353535',
+    ...Platform.select({
+      android: {
+        borderColor: '#52796f',
+      },
+      ios: {
+        borderColor: '#4a4e69',
+      },
+      default: {
+        borderColor: '#353535',
+      }
+    })
     
   },
   btnLabel: {

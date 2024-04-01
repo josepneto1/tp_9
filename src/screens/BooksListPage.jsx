@@ -1,6 +1,6 @@
 import { useNavigation } from '@react-navigation/native';
 import React, { useEffect, useState } from 'react';
-import { ActivityIndicator, FlatList, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { ActivityIndicator, FlatList, Platform, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import BookCard from '../components/BookCard';
 
 export default function BooksListPage(){
@@ -105,6 +105,17 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     paddingHorizontal: 20,
     borderRadius: 5,
+    ...Platform.select({
+      android: {
+        backgroundColor: '#52796f',
+      },
+      ios: {
+        backgroundColor: '#4a4e69',
+      },
+      default: {
+        backgroundColor: '#353535',
+      }
+    }),
   },
   buttonText: {
     color: 'white',
